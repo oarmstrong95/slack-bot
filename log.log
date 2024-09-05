@@ -1,0 +1,4 @@
+2024-09-05 13:23:29,038 - INFO - [('system', "\nYou are an AI assistant. \nYou will answer the question as truthfully as possible.\nIf you're unsure of the answer, say Sorry, I don't know.\n"), ('user', 'what is 4+4?')]
+2024-09-05 13:23:29,973 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-09-05 13:27:39,086 - INFO - [('system', "\nYou are an AI assistant. \nYou will answer the question as truthfully as possible.\nIf you're unsure of the answer, say Sorry, I don't know.\n"), ('user', 'what is 12*12?')]
+2024-09-05 13:27:40,059 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
