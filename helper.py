@@ -64,14 +64,14 @@ def process_conversation_history(conversation_history, bot_user_id):
     """
     messages = []
     messages.append(("system", SYSTEM_PROMPT))
-    # Iterate over each message in the conversation history, except the last one
-    for message in conversation_history['messages'][:-1]:
+    # Iterate over each message in the conversation history, including the last one
+    for message in conversation_history['messages']:
         # Determine the role of the message (either "assistant" or "user")
         role = "assistant" if message['user'] == bot_user_id else "user"
         
         # Process the message and get the cleaned message text
         message_text = process_message(message, bot_user_id)
-        
+
         # If the message text is not None, add it to the list of messages
         if message_text:
             messages.append((role, message_text))
@@ -112,14 +112,12 @@ def clean_message_text(message_text, role, bot_user_id):
         bot_user_id (str): The ID of the bot user.
 
     Returns:
-        str or None: The cleaned message text if the bot user mention is present or the role is "assistant", 
-        otherwise None.
+        str: The cleaned message text.
     """
-    if (f'<@{bot_user_id}>' in message_text) or (role == "assistant"):
+    if role == "user":
+        # Remove the bot mention from user messages
         message_text = message_text.replace(f'<@{bot_user_id}>', '').strip()
-        return message_text
-    return None
-
+    return message_text
 
 def update_chat(app, channel_id, reply_message_ts, response_text):
     """

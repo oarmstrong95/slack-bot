@@ -30,7 +30,7 @@ langchain-core==0.2.38
 langchain-openai==0.1.23
 langchain-text-splitters==0.2.4
 langsmith==0.1.114
-lxml==4.9.2
+lxml>=4.9.2,<6
 multidict==6.0.5
 numpy==1.24.4
 openai==1.43.0
